@@ -1,0 +1,14 @@
+[Unit]
+Description=MSI Titan 18 HX keyboard backlight
+# Also runs after resume, see WantedBy below.
+After=suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target
+
+[Service]
+# exec, not oneshot: boot and resume do not wait the ~2 s it takes.
+Type=exec
+Environment=COLOR=ff0000
+EnvironmentFile=-/etc/default/titan-kbd-light
+ExecStart=/usr/local/bin/titan-kbd-light ${COLOR}
+
+[Install]
+WantedBy=multi-user.target suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target

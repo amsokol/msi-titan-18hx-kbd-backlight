@@ -1,0 +1,3 @@
+# Start titan-kbd-light.service whenever the SteelSeries KLC keyboard
+# lighting controller (USB 1038:1122) appears: at boot and if it reconnects.
+ACTION=="add", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1038", ATTRS{idProduct}=="1122", TAG+="systemd", ENV{SYSTEMD_WANTS}+="titan-kbd-light.service"

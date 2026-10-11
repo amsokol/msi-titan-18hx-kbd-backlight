@@ -1,0 +1,3 @@
+# Keyboard backlight color as RRGGBB, or "off".
+# Apply after editing: sudo systemctl start titan-kbd-light
+COLOR=ff0000
